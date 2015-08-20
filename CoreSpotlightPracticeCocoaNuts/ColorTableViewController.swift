@@ -49,7 +49,7 @@ class ColorTableViewController: UITableViewController {
     ]
     
     private var favoriteColorIndices: [Int]? {
-        get { return NSUserDefaults.standardUserDefaults().valueForKey("favoriteColorIndices") as? [Int] }
+        get { return NSUserDefaults.standardUserDefaults().valueForKey("favoriteColorIndices") as? [Int] ?? [] }
         set {
             NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "favoriteColorIndices")
             NSUserDefaults.standardUserDefaults().synchronize()
@@ -60,7 +60,6 @@ class ColorTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.allowsMultipleSelection = true
-        if favoriteColorIndices == nil { favoriteColorIndices = [] }
         
         for indice in favoriteColorIndices! {
             let indexPath = NSIndexPath(forRow: indice, inSection: 0)
@@ -89,7 +88,6 @@ class ColorTableViewController: UITableViewController {
             try indexFavoriteColor(indexPath.row)
             
             tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .Checkmark
-            print(tableView.cellForRowAtIndexPath(indexPath)?.selected)
             favoriteColorIndices?.append(indexPath.row)
             
         } catch IndexingError.OperatingSystem {
@@ -104,8 +102,6 @@ class ColorTableViewController: UITableViewController {
             try deindexColor(indexPath.row)
             
             tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
-            
-            //removes any elements of value 'indexPath.row' from the array
             favoriteColorIndices = favoriteColorIndices?.filter({$0 != indexPath.row})
             
         } catch IndexingError.OperatingSystem {
