@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CoreSpotlightPracticeCocoaNuts.xcscheme</key>
+		<key>FavoriteColors.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A58DB4831B7FEB9100A35C1C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A58DB4981B7FEB9200A35C1C</key>
+		<key>A5B8C7C31D4EE665000E85CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
